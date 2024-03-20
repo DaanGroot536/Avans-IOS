@@ -15,6 +15,8 @@
 		01C857892BAB01B00096C447 /* Avans_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C857882BAB01B00096C447 /* Avans_IOSTests.swift */; };
 		01C857932BAB01B00096C447 /* Avans_IOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C857922BAB01B00096C447 /* Avans_IOSUITests.swift */; };
 		01C857952BAB01B00096C447 /* Avans_IOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C857942BAB01B00096C447 /* Avans_IOSUITestsLaunchTests.swift */; };
+		01C857A22BAB05DC0096C447 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C857A12BAB05DC0096C447 /* SettingsView.swift */; };
+		01C857A42BAB06520096C447 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C857A32BAB06520096C447 /* SettingsStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		01C8578E2BAB01B00096C447 /* Avans-IOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Avans-IOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01C857922BAB01B00096C447 /* Avans_IOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avans_IOSUITests.swift; sourceTree = "<group>"; };
 		01C857942BAB01B00096C447 /* Avans_IOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avans_IOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		01C857A12BAB05DC0096C447 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		01C857A32BAB06520096C447 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 				01C857792BAB01AD0096C447 /* Item.swift */,
 				01C8577B2BAB01AF0096C447 /* Assets.xcassets */,
 				01C8577D2BAB01AF0096C447 /* Preview Content */,
+				01C857A12BAB05DC0096C447 /* SettingsView.swift */,
+				01C857A32BAB06520096C447 /* SettingsStore.swift */,
 			);
 			path = "Avans-IOS";
 			sourceTree = "<group>";
@@ -261,7 +267,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				01C857782BAB01AD0096C447 /* ContentView.swift in Sources */,
+				01C857A22BAB05DC0096C447 /* SettingsView.swift in Sources */,
 				01C8577A2BAB01AD0096C447 /* Item.swift in Sources */,
+				01C857A42BAB06520096C447 /* SettingsStore.swift in Sources */,
 				01C857762BAB01AD0096C447 /* Avans_IOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
