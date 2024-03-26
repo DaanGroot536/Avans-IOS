@@ -25,8 +25,19 @@ struct Avans_IOSApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                ContentView()
+                    .tabItem {
+                        Label("Home", systemImage: "house")
+                    }
+
+                MealPlanListView()
+                    .tabItem {
+                        Label("Meal Plans", systemImage: "list.bullet")
+                    }
+            }
+            .modelContainer(sharedModelContainer)
         }
-        .modelContainer(sharedModelContainer)
+
     }
 }
