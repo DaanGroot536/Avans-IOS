@@ -16,7 +16,7 @@ struct RoutineListView: View {
         NavigationView {
             List {
                 ForEach(viewModel.routines) { routine in
-                    NavigationLink(destination: RoutineDetailView(routine: routine)) {
+                    NavigationLink(destination: RoutineDetailView(routine: routine).environmentObject(viewModel)) {
                         Text(routine.name)
                     }
                 }
@@ -27,9 +27,9 @@ struct RoutineListView: View {
                 leading: Button(action: { showingSettings = true }) {
                     Image(systemName: "gear")
                 },
-                trailing: NavigationLink(destination: AddEditRoutineView()) {
-                    Image(systemName: "plus")
-                }
+                trailing: NavigationLink(destination: AddEditRoutineView().environmentObject(viewModel)) {
+                                    Image(systemName: "plus")
+                                }
             )
             .sheet(isPresented: $showingSettings) {
                 SettingsView().environmentObject(settingsStore)

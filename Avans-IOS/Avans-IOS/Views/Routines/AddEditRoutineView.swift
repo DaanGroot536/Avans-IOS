@@ -18,10 +18,6 @@ struct AddEditRoutineView: View {
     @State private var exerciseToEdit: Exercise?
     
     @State private var isAddExerciseViewPresented = false
-    
-    init() {
-        viewModel.loadRoutines()
-    }
 
     var body: some View {
         NavigationView {
@@ -65,6 +61,9 @@ struct AddEditRoutineView: View {
             .sheet(isPresented: $isAddExerciseViewPresented) {
                 AddExerciseView(exercises: $exercises)
             }
+        }
+        .onAppear {
+            viewModel.loadRoutines()
         }
     }
 

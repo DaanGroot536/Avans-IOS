@@ -33,8 +33,8 @@ struct Avans_IOSApp: App {
                     .tabItem {
                         Label("Routines", systemImage: "flame")
                     }
-                    .environmentObject(workoutRoutinesViewModel)
                     .environmentObject(settingsStore)
+                    .environmentObject(workoutRoutinesViewModel)
 
 
                 MealPlanListView()
