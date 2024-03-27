@@ -6,6 +6,49 @@ struct WorkoutRoutinesData: Codable {
 
 class WorkoutRoutinesViewModel: ObservableObject {
     @Published var routines: [WorkoutRoutine] = []
+    
+    // State variables to control presentation of the edit exercise view
+    @Published var isEditExerciseViewPresented = false
+    @Published var selectedExercise: Exercise?
+
+    func showEditExerciseView(for exercise: Exercise) {
+        // Set the selected exercise and present the edit exercise view
+        self.selectedExercise = exercise
+        self.isEditExerciseViewPresented = true
+    }
+    
+    func updateExercise(_ exercise: Exercise, inRoutine routine: WorkoutRoutine) {
+        guard let index = routines.firstIndex(where: { $0.id == routine.id }) else {
+            return // Routine not found
+        }
+
+        guard let exerciseIndex = routines[index].exercises.firstIndex(where: { $0.id == exercise.id }) else {
+            return // Exercise not found
+        }
+
+        routines[index].exercises[exerciseIndex] = exercise
+    }
+    
+    func deleteExercise(at index: Int, fromRoutine routine: inout WorkoutRoutine) {
+        guard index >= 0 && index < routine.exercises.count else {
+            return // Index out of bounds
+        }
+        // Make a mutable copy of the routine
+        var mutableRoutine = routine
+        // Remove the exercise at the specified index from the routine's exercises array
+        mutableRoutine.exercises.remove(at: index)
+        // Assign the modified routine back to the original routine
+        routine = mutableRoutine
+    }
+    
+    func deleteExercises(at offsets: IndexSet, fromRoutine routine: WorkoutRoutine) {
+        guard let index = routines.firstIndex(where: { $0.id == routine.id }) else {
+            return // Routine not found
+        }
+
+        routines[index].exercises.remove(atOffsets: offsets)
+    }
+
 
     // File URL for saving and loading routines
     private var fileURL: URL {

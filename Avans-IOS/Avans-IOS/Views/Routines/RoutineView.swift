@@ -36,6 +36,9 @@ struct RoutineListView: View {
             }
         }
         .preferredColorScheme(settingsStore.settings.darkModeEnabled ? .dark : .light)
+        .onAppear {
+            viewModel.loadRoutines()
+        }
     }
 }
 

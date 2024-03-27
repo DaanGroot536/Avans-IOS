@@ -1,37 +1,48 @@
-//
-//  RoutineDetailView.swift
-//  Avans-IOS
-//
-//  Created by Robin Pijnappels on 27/03/2024.
-//
-
 import SwiftUI
 
 struct RoutineDetailView: View {
-    var routine: WorkoutRoutine
+    @EnvironmentObject var viewModel: WorkoutRoutinesViewModel
+    @State var routine: WorkoutRoutine // Change to @State
+    @State private var editMode = EditMode.inactive
 
     var body: some View {
         List {
             Section(header: Text("Oefeningen")) {
-                ForEach(routine.exercises) { exercise in
-                    VStack(alignment: .leading) {
-                        Text(exercise.name)
-                            .font(.headline)
-                        Text("Type: \(exercise.type.rawValue)")
-                        Text("Sets: \(exercise.sets)")
-                        Text("Herhalingen: \(exercise.repetitions)")
-                        // Als de duur van een oefening relevant is, kan deze ook getoond worden:
-                        if exercise.duration > 0 {
-                            Text("Duur: \(exercise.duration) minuten")
+                ForEach(routine.exercises.indices, id: \.self) { index in
+                    NavigationLink(
+                        destination: ExerciseEditView(exercise: $routine.exercises[index], routine: routine),
+                        label: {
+                            ExerciseRow(exercise: $routine.exercises[index])
                         }
-                    }
-                    .padding(.vertical)
+                    )
                 }
+                .onDelete(perform: deleteExercises)
             }
         }
         .navigationBarTitle(routine.name)
+        .navigationBarItems(trailing: EditButton())
+        .environment(\.editMode, $editMode)
+    }
+
+    private func deleteExercises(at offsets: IndexSet) {
+        viewModel.deleteExercises(at: offsets, fromRoutine: routine)
     }
 }
 
+struct ExerciseRow: View {
+    @Binding var exercise: Exercise
 
-
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(exercise.name)
+                .font(.headline)
+            Text("Type: \(exercise.type.rawValue)")
+            Text("Sets: \(exercise.sets)")
+            Text("Herhalingen: \(exercise.repetitions)")
+            if exercise.duration > 0 {
+                Text("Duur: \(exercise.duration) minuten")
+            }
+        }
+        .padding(.vertical)
+    }
+}
