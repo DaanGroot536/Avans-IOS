@@ -27,6 +27,7 @@
 		30667FF52BB35164009D3644 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30667FF42BB35164009D3644 /* NetworkManager.swift */; };
 		30667FF92BB351B9009D3644 /* MealPlanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30667FF82BB351B9009D3644 /* MealPlanListView.swift */; };
 		30667FFB2BB358B7009D3644 /* MealPlanDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30667FFA2BB358B7009D3644 /* MealPlanDetailView.swift */; };
+		A83A4C692BB4539F00E65780 /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83A4C682BB4539F00E65780 /* AddExerciseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		30667FF42BB35164009D3644 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		30667FF82BB351B9009D3644 /* MealPlanListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanListView.swift; sourceTree = "<group>"; };
 		30667FFA2BB358B7009D3644 /* MealPlanDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanDetailView.swift; sourceTree = "<group>"; };
+		A83A4C682BB4539F00E65780 /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				3008137A2BB408130081FFBC /* EditExerciseView.swift */,
+				A83A4C682BB4539F00E65780 /* AddExerciseView.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				01C8577A2BAB01AD0096C447 /* Item.swift in Sources */,
 				01C857A42BAB06520096C447 /* SettingsStore.swift in Sources */,
 				300813762BB3FEBB0081FFBC /* AddEditRoutineView.swift in Sources */,
+				A83A4C692BB4539F00E65780 /* AddExerciseView.swift in Sources */,
 				300813732BB3FE7E0081FFBC /* RoutineView.swift in Sources */,
 				01C857762BAB01AD0096C447 /* Avans_IOSApp.swift in Sources */,
 				30667FFB2BB358B7009D3644 /* MealPlanDetailView.swift in Sources */,

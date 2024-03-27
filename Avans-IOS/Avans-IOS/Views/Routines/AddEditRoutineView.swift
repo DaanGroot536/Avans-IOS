@@ -1,10 +1,3 @@
-//
-//  AddEditRoutineView.swift
-//  Avans-IOS
-//
-//  Created by Robin Pijnappels on 27/03/2024.
-//
-
 import SwiftUI
 
 struct AddEditRoutineView: View {
@@ -24,6 +17,12 @@ struct AddEditRoutineView: View {
     @State private var showingEditExerciseView = false
     @State private var exerciseToEdit: Exercise?
     
+    @State private var isAddExerciseViewPresented = false
+    
+    init() {
+        viewModel.loadRoutines()
+    }
+
     var body: some View {
         NavigationView {
             Form {
@@ -33,28 +32,28 @@ struct AddEditRoutineView: View {
                 
                 Section(header: Text("Oefeningen")) {
                     ForEach(exercises.indices, id: \.self) { index in
-                            HStack {
-                                Text(exercises[index].name)
-                                Spacer()
-                                Button(action: {
-                                    exerciseToEdit = exercises[index]
-                                    showingEditExerciseView = true
-                                }) {
-                                    Image(systemName: "pencil")
-                                }
-                                .sheet(isPresented: $showingEditExerciseView) {
-                                    if let exerciseToEdit = exerciseToEdit {
-                                        EditExerciseView(exercise: Binding(get: { exerciseToEdit }, set: { exercises[index] = $0 }), saveAction: {
-                                            showingEditExerciseView = false
-                                        })
-                                    }
-                                }
-                                .buttonStyle(BorderlessButtonStyle()) 
+                        HStack {
+                            Text(exercises[index].name)
+                            Spacer()
+                            Button(action: {
+                                exerciseToEdit = exercises[index]
+                                showingEditExerciseView = true
+                            }) {
+                                Image(systemName: "pencil")
                             }
+                            .sheet(isPresented: $showingEditExerciseView) {
+                                if let exerciseToEdit = exerciseToEdit {
+                                    EditExerciseView(exercise: Binding(get: { exerciseToEdit }, set: { exercises[index] = $0 }), saveAction: {
+                                        showingEditExerciseView = false
+                                    })
+                                }
+                            }
+                            .buttonStyle(BorderlessButtonStyle())
                         }
-                        .onDelete(perform: deleteExercise)
+                    }
+                    .onDelete(perform: deleteExercise)
                     Button("Voeg oefening toe") {
-                        showAddExerciseView()
+                        isAddExerciseViewPresented.toggle()
                     }
                 }
             }
@@ -62,24 +61,21 @@ struct AddEditRoutineView: View {
             .navigationBarItems(trailing: Button("Save") {
                 saveRoutine()
             })
+            // Present AddExerciseView as a sheet
+            .sheet(isPresented: $isAddExerciseViewPresented) {
+                AddExerciseView(exercises: $exercises)
+            }
         }
     }
-    
+
     func deleteExercise(at offsets: IndexSet) {
         exercises.remove(atOffsets: offsets)
-    }
-
-    func showAddExerciseView() {
-        // Tijdelijke methode om nieuwe oefening toe te voegen
-        let newExercise = Exercise(id: UUID(), name: newExerciseName, type: newExerciseType, sets: newExerciseSets, repetitions: newExerciseRepetitions, duration: newExerciseDuration)
-        exercises.append(newExercise)
-        // Reset tijdelijke variabelen indien nodig
     }
 
     func saveRoutine() {
         let newRoutine = WorkoutRoutine(id: UUID(), name: routineName, exercises: exercises)
         viewModel.addRoutine(routine: newRoutine)
         presentationMode.wrappedValue.dismiss()
+        viewModel.saveRoutines()
     }
 }
-
