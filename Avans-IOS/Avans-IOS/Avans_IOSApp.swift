@@ -22,14 +22,20 @@ struct Avans_IOSApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    @StateObject var settingsStore = SettingsStore()
+    @StateObject var workoutRoutinesViewModel = WorkoutRoutinesViewModel()
 
     var body: some Scene {
         WindowGroup {
             TabView {
-                ContentView()
+                RoutineListView()
                     .tabItem {
-                        Label("Home", systemImage: "house")
+                        Label("Routines", systemImage: "flame")
                     }
+                    .environmentObject(workoutRoutinesViewModel)
+                    .environmentObject(settingsStore)
+
 
                 MealPlanListView()
                     .tabItem {

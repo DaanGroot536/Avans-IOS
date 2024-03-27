@@ -6,3 +6,24 @@
 //
 
 import Foundation
+
+struct Exercise: Identifiable, Codable {
+    var id: UUID = UUID()
+    var name: String
+    var type: ExerciseType
+    var sets: Int
+    var repetitions: Int
+    var duration: Int // Duur in minuten
+}
+
+enum ExerciseType: String, Codable, CaseIterable, Identifiable {
+    case strength = "Kracht"
+    case cardio = "Cardio"
+    var id: String { self.rawValue }
+}
+
+struct WorkoutRoutine: Identifiable, Codable {
+    var id: UUID = UUID()
+    var name: String
+    var exercises: [Exercise]
+}

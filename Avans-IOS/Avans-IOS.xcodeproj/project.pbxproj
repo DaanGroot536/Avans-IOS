@@ -17,6 +17,12 @@
 		01C857952BAB01B00096C447 /* Avans_IOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C857942BAB01B00096C447 /* Avans_IOSUITestsLaunchTests.swift */; };
 		01C857A22BAB05DC0096C447 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C857A12BAB05DC0096C447 /* SettingsView.swift */; };
 		01C857A42BAB06520096C447 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C857A32BAB06520096C447 /* SettingsStore.swift */; };
+		3008136F2BB3FE130081FFBC /* Routines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3008136E2BB3FE130081FFBC /* Routines.swift */; };
+		300813712BB3FE4E0081FFBC /* RoutineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300813702BB3FE4E0081FFBC /* RoutineManager.swift */; };
+		300813732BB3FE7E0081FFBC /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300813722BB3FE7E0081FFBC /* RoutineView.swift */; };
+		300813762BB3FEBB0081FFBC /* AddEditRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300813752BB3FEBB0081FFBC /* AddEditRoutineView.swift */; };
+		300813782BB3FEC40081FFBC /* RoutineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300813772BB3FEC40081FFBC /* RoutineDetailView.swift */; };
+		3008137B2BB408130081FFBC /* EditExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3008137A2BB408130081FFBC /* EditExerciseView.swift */; };
 		30667FF22BB35129009D3644 /* MealPlans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30667FF12BB35129009D3644 /* MealPlans.swift */; };
 		30667FF52BB35164009D3644 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30667FF42BB35164009D3644 /* NetworkManager.swift */; };
 		30667FF92BB351B9009D3644 /* MealPlanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30667FF82BB351B9009D3644 /* MealPlanListView.swift */; };
@@ -54,6 +60,12 @@
 		01C857942BAB01B00096C447 /* Avans_IOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avans_IOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		01C857A12BAB05DC0096C447 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		01C857A32BAB06520096C447 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		3008136E2BB3FE130081FFBC /* Routines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routines.swift; sourceTree = "<group>"; };
+		300813702BB3FE4E0081FFBC /* RoutineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineManager.swift; sourceTree = "<group>"; };
+		300813722BB3FE7E0081FFBC /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
+		300813752BB3FEBB0081FFBC /* AddEditRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRoutineView.swift; sourceTree = "<group>"; };
+		300813772BB3FEC40081FFBC /* RoutineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineDetailView.swift; sourceTree = "<group>"; };
+		3008137A2BB408130081FFBC /* EditExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseView.swift; sourceTree = "<group>"; };
 		30667FF12BB35129009D3644 /* MealPlans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlans.swift; sourceTree = "<group>"; };
 		30667FF42BB35164009D3644 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		30667FF82BB351B9009D3644 /* MealPlanListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanListView.swift; sourceTree = "<group>"; };
@@ -147,10 +159,30 @@
 			path = "Avans-IOSUITests";
 			sourceTree = "<group>";
 		};
+		300813742BB3FE860081FFBC /* Routines */ = {
+			isa = PBXGroup;
+			children = (
+				300813792BB408040081FFBC /* Exercise */,
+				300813722BB3FE7E0081FFBC /* RoutineView.swift */,
+				300813752BB3FEBB0081FFBC /* AddEditRoutineView.swift */,
+				300813772BB3FEC40081FFBC /* RoutineDetailView.swift */,
+			);
+			path = Routines;
+			sourceTree = "<group>";
+		};
+		300813792BB408040081FFBC /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				3008137A2BB408130081FFBC /* EditExerciseView.swift */,
+			);
+			path = Exercise;
+			sourceTree = "<group>";
+		};
 		30667FF02BB35114009D3644 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				30667FF12BB35129009D3644 /* MealPlans.swift */,
+				3008136E2BB3FE130081FFBC /* Routines.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -159,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				30667FF42BB35164009D3644 /* NetworkManager.swift */,
+				300813702BB3FE4E0081FFBC /* RoutineManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -166,6 +199,7 @@
 		30667FF62BB3519F009D3644 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				300813742BB3FE860081FFBC /* Routines */,
 				30667FF72BB351A4009D3644 /* MealPlans */,
 			);
 			path = Views;
@@ -310,13 +344,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				300813712BB3FE4E0081FFBC /* RoutineManager.swift in Sources */,
+				3008136F2BB3FE130081FFBC /* Routines.swift in Sources */,
 				01C857782BAB01AD0096C447 /* ContentView.swift in Sources */,
 				30667FF22BB35129009D3644 /* MealPlans.swift in Sources */,
+				300813782BB3FEC40081FFBC /* RoutineDetailView.swift in Sources */,
 				30667FF92BB351B9009D3644 /* MealPlanListView.swift in Sources */,
 				01C857A22BAB05DC0096C447 /* SettingsView.swift in Sources */,
+				3008137B2BB408130081FFBC /* EditExerciseView.swift in Sources */,
 				30667FF52BB35164009D3644 /* NetworkManager.swift in Sources */,
 				01C8577A2BAB01AD0096C447 /* Item.swift in Sources */,
 				01C857A42BAB06520096C447 /* SettingsStore.swift in Sources */,
+				300813762BB3FEBB0081FFBC /* AddEditRoutineView.swift in Sources */,
+				300813732BB3FE7E0081FFBC /* RoutineView.swift in Sources */,
 				01C857762BAB01AD0096C447 /* Avans_IOSApp.swift in Sources */,
 				30667FFB2BB358B7009D3644 /* MealPlanDetailView.swift in Sources */,
 			);

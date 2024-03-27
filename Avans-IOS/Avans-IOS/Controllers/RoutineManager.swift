@@ -6,3 +6,21 @@
 //
 
 import Foundation
+
+class WorkoutRoutinesViewModel: ObservableObject {
+    @Published var routines: [WorkoutRoutine] = []
+    
+    func addRoutine(routine: WorkoutRoutine) {
+        routines.append(routine)
+    }
+    
+    func removeRoutine(at indexSet: IndexSet) {
+        routines.remove(atOffsets: indexSet)
+    }
+    
+    func updateRoutine(routine: WorkoutRoutine) {
+        if let index = routines.firstIndex(where: { $0.id == routine.id }) {
+            routines[index] = routine
+        }
+    }
+}
