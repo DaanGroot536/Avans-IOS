@@ -49,5 +49,34 @@ class NetworkManager {
             }
         }.resume()
     }
+    
+    func saveMealPlansToFile(mealPlans: [MealPlan]) {
+        do {
+            let filePath = getDocumentsDirectory().appendingPathComponent("mealPlans.json")
+            let data = try JSONEncoder().encode(mealPlans)
+            try data.write(to: filePath, options: [.atomicWrite, .completeFileProtection])
+            print("Meal plans saved successfully.")
+        } catch {
+            print("Failed to save meal plans: \(error)")
+        }
+    }
+
+    private func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+
+    func loadMealPlansFromFile() -> [MealPlan]? {
+        let filePath = getDocumentsDirectory().appendingPathComponent("mealPlans.json")
+        do {
+            let data = try Data(contentsOf: filePath)
+            let mealPlans = try JSONDecoder().decode([MealPlan].self, from: data)
+            return mealPlans
+        } catch {
+            print("Failed to load meal plans: \(error)")
+            return nil
+        }
+    }
+
 }
 
