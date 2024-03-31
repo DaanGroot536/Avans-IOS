@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Exercise: Identifiable, Codable {
+struct Exercise: Identifiable, Codable, Equatable  {
     var id: UUID = UUID()
     var name: String
     var type: ExerciseType
@@ -22,7 +22,7 @@ enum ExerciseType: String, Codable, CaseIterable, Identifiable {
     var id: String { self.rawValue }
 }
 
-struct WorkoutRoutine: Identifiable, Codable {
+struct WorkoutRoutine: Identifiable, Codable, Equatable {
     var id: UUID = UUID()
     var name: String
     var exercises: [Exercise]

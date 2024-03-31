@@ -31,20 +31,7 @@ struct AddEditRoutineView: View {
                         HStack {
                             Text(exercises[index].name)
                             Spacer()
-                            Button(action: {
-                                exerciseToEdit = exercises[index]
-                                showingEditExerciseView = true
-                            }) {
-                                Image(systemName: "pencil")
-                            }
-                            .sheet(isPresented: $showingEditExerciseView) {
-                                if let exerciseToEdit = exerciseToEdit {
-                                    EditExerciseView(exercise: Binding(get: { exerciseToEdit }, set: { exercises[index] = $0 }), saveAction: {
-                                        showingEditExerciseView = false
-                                    })
-                                }
-                            }
-                            .buttonStyle(BorderlessButtonStyle())
+
                         }
                     }
                     .onDelete(perform: deleteExercise)
